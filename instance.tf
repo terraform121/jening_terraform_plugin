@@ -42,6 +42,7 @@ resource "aws_security_group" "security_Group" {
 resource "aws_instance" "docker" {
     ami = var.ami
     subnet_id = aws_subnet.public_subnet.*.id[0]
+    key_name = "mavenkey"
     instance_type = "t2.micro"
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.security_Group.id]
