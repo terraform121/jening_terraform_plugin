@@ -46,15 +46,6 @@ resource "aws_instance" "docker" {
     instance_type = "t2.micro"
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.security_Group.id]
-    user_data = <<-EOF
-              #!/bin/bash
-              sudo yum update -y
-              sudo amazon-linux-extras install docker
-              sudo yum install -y docker
-              sudo service docker start
-              sudo usermod -a -G docker ec2-user
-              docker ps
-              EOF
     
     tags = {
       Name = "Docker"
