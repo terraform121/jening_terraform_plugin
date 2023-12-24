@@ -1,5 +1,6 @@
 ---
 - name: installing git
+  hosts: aws_ec2
   become: true
   tasks:
     - name: installing git
