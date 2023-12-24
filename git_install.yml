@@ -1,0 +1,9 @@
+---
+- name: installing git
+  become: true
+  tasks:
+    - name: installing git
+      dnf:
+        name: git
+        state: present
+...
